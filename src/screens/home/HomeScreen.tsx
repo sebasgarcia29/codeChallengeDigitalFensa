@@ -12,8 +12,14 @@ export const HomeScreen = () => {
     const { top } = useSafeAreaInsets()
     const navigation = useNavigation()
 
-    const { products, loadOnlyNegative, loadOnlyPositive, isSelected, loadProducts } =
-        useProducts()
+    const {
+        products,
+        loadOnlyNegative,
+        loadOnlyPositive,
+        isSelected,
+        loadProducts,
+        isLoading,
+    } = useProducts()
 
     const Item = (data: any) => (
         <DetailProduct product={data.data.item} onPressProduct={onPressProduct} />
@@ -52,7 +58,11 @@ export const HomeScreen = () => {
                             </Text>
                             <View style={{ alignSelf: 'center', marginTop: 10 }}>
                                 <Text style={{ ...styles.textPoints, color: '#fff' }}>
-                                    {'10,00.00 pts'}
+                                    {!isLoading &&
+                                        products
+                                            .reduce((a, b) => a + b.points, 0)
+                                            .toString()
+                                            .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}
                                 </Text>
                             </View>
                         </View>

@@ -5,7 +5,7 @@ import { ProductScreen } from '../screens/product/ProductScreen'
 import type { Params } from './Params'
 import { PageName } from './PageName'
 
-const Stack = createStackNavigator<Params>();
+const Stack = createStackNavigator<Params>()
 
 export const StackNavigator = () => {
     return (

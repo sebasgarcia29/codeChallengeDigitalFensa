@@ -18,6 +18,6 @@ export type Params = {
 // Add Params to React Navigation namespace to be able to get it from anywhere
 declare global {
     namespace ReactNavigation {
-        interface RootParamList extends Params { }
+        interface RootParamList extends Params {}
     }
 }

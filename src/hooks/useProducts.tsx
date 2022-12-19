@@ -4,7 +4,9 @@ import type { ProductsInterface } from '../interfaces/productsInterface'
 
 export const useProducts = () => {
     const [isLoading, setisLoading] = useState(true)
-    const [products, setProducts] = useState<ProductsInterface[]>({} as ProductsInterface[])
+    const [products, setProducts] = useState<ProductsInterface[]>(
+        {} as ProductsInterface[]
+    )
     const [isSelected, setIsSelected] = useState(false)
 
     const loadProducts = async () => {
